@@ -1,0 +1,147 @@
+Braden Allard
+
+
+INSERT:
+
+
+INSERT INTO `making_a_bunch_of_sqls`.`teacher`
+(`first_name`,
+`last_name`,
+`age`,
+`salary`)
+VALUES
+('Tucker', 'Allard', 25, 80000.50),
+('Bob', 'Brown', 45, 45000.30),
+('Kristy', 'Null', 32, 55070.76);
+SELECT * FROM teacher
+
+INSERT INTO `making_a_bunch_of_sqls`.`class`
+(`name`,
+`description`,
+`teacher_id`)
+VALUES
+('History', 'Learn History!', 1),
+('Physical Education', 'Learn Dodgeball!', 1),
+('English', 'Learn to Read!', 2),
+('Math', 'Learn Algebra!', 2),
+('Science', 'Learn Chemistry!', 3),
+('Psychology', 'Learn About the Brain!', 3);
+SELECT * FROM class
+
+INSERT INTO `making_a_bunch_of_sqls`.`student`
+(`first_name`,
+`last_name`,
+`grade`,
+`gpa`)
+VALUES
+('Ken', 'Allard', 9, 3.43),
+('Casey', 'Allard', 12, 2.03),
+('Michael', 'Allard', 4, 3.21),
+('Alexandra', 'Allard', 11, 3.95),
+('Gary', 'Allard', 7, 1.87),
+('Chuck', 'Allard', 2, 2.98),
+('Karen', 'Allard', 10, 3.67),
+('Evelyn', 'Allard', 5, 4.00),
+('Jack', 'Allard', 8, 2.74),
+('Joyce', 'Allard', 1, 3.19);
+SELECT * FROM student
+
+INSERT INTO `making_a_bunch_of_sqls`.`class_student`
+(`class_id`,
+`student_id`)
+VALUES
+(1,1),
+(2,1),
+(3,2),
+(4,2),
+(5,3),
+(6,3),
+(1,4),
+(2,4),
+(3,5),
+(4,5),
+(5,6),
+(6,6),
+(1,7),
+(2,7),
+(3,8),
+(4,8),
+(5,9),
+(6,9),
+(1,10),
+(2,10);
+SELECT * FROM making_a_bunch_of_sqls.class_student;
+
+
+QUERY:
+
+
+SELECT `teacher`.`teacher_id`,
+    `teacher`.`first_name`,
+    `teacher`.`last_name`,
+    `teacher`.`age`,
+    `teacher`.`salary`
+FROM `making_a_bunch_of_sqls`.`teacher`;
+
+SELECT `class`.`class_id`,
+    `class`.`name`,
+    `class`.`description`,
+    `class`.`teacher_id`
+FROM `making_a_bunch_of_sqls`.`class`;
+
+SELECT `student`.`student_id`,
+    `student`.`first_name`,
+    `student`.`last_name`,
+    `student`.`grade`,
+    `student`.`gpa`
+FROM `making_a_bunch_of_sqls`.`student`;
+
+SELECT `class`.`class_id`,
+    `class`.`name`,
+    `class`.`description`
+FROM `making_a_bunch_of_sqls`.`class`
+WHERE teacher_id LIKE 1;
+
+SELECT `class_student`.`class_student_id`,
+    `class_student`.`class_id`,
+    `class_student`.`student_id`
+FROM `making_a_bunch_of_sqls`.`class_student`
+WHERE class_id LIKE 1;
+
+SELECT `class_student`.`class_student_id`,
+    `class_student`.`class_id`,
+    `class_student`.`student_id`
+FROM `making_a_bunch_of_sqls`.`class_student`
+WHERE student_id LIKE 1;
+
+SELECT `student`.`student_id`,
+    `student`.`first_name`
+FROM `making_a_bunch_of_sqls`.`student`
+WHERE first_name LIKE 'A%';
+
+
+UPDATE:
+
+
+UPDATE `making_a_bunch_of_sqls`.`teacher`
+SET
+`first_name` = 'Superman'
+WHERE `teacher_id` = 1;
+
+UPDATE `making_a_bunch_of_sqls`.`class`
+SET
+`name` = 'Underwater Basket Weaving'
+WHERE `class_id` = 1;
+
+UPDATE `making_a_bunch_of_sqls`.`student`
+SET
+`first_name` = 'Wonder',
+`last_name` = 'Woman'
+WHERE `student_id` = 1;
+
+
+DELETE:
+
+
+DELETE FROM `making_a_bunch_of_sqls`.`student`
+WHERE student_id LIKE 10;
